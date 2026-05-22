@@ -1074,6 +1074,78 @@
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .footer-links  { flex-wrap: wrap; gap: var(--space-md); }
     }
+    /* ─── QUOTE POPUP ────────────────────────────────────── */
+    .qpop-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,28,33,.6);
+      z-index: 1200;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      opacity: 0;
+      transition: opacity .35s;
+    }
+    .qpop-overlay.open {
+      display: flex;
+      opacity: 0;
+    }
+    .qpop-overlay.visible {
+      opacity: 1;
+    }
+    .qpop {
+      position: relative;
+      background: var(--teal-deep);
+      border: 1px solid rgba(99,181,202,.2);
+      border-radius: var(--r-xl);
+      padding: var(--space-3xl) var(--space-2xl);
+      width: min(420px, 100%);
+      box-shadow: 0 32px 80px rgba(0,0,0,.45);
+      transform: translateY(24px);
+      transition: transform .4s var(--ease-expo);
+      text-align: center;
+    }
+    .qpop-overlay.visible .qpop {
+      transform: translateY(0);
+    }
+    .qpop-close {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      border: none;
+      cursor: pointer;
+      color: rgba(248,252,254,.6);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, color .2s;
+    }
+    .qpop-close:hover { background: rgba(255,255,255,.15); color: #f8fcfe; }
+    .qpop-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: var(--space-sm);
+    }
+    .qpop-heading {
+      font-size: clamp(1.3rem, 2vw + .5rem, 1.7rem);
+      font-weight: 700;
+      color: #f8fcfe;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+    .qpop-body {
+      font-size: 0.9375rem;
+      color: rgba(248,252,254,.65);
+      line-height: 1.6;
+      margin-bottom: var(--space-2xl);
+    }
   </style>
 </head>
 <body>
@@ -1780,6 +1852,24 @@
   </div>
 </footer>
 
+<!-- ═══════════════════════════════ QUOTE POPUP ═══ -->
+<div class="qpop-overlay" id="qpop-overlay" role="dialog" aria-modal="true" aria-labelledby="qpop-heading">
+  <div class="qpop">
+    <button class="qpop-close" id="qpop-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <p class="qpop-eyebrow">Free Quote</p>
+    <h3 class="qpop-heading" id="qpop-heading">Ready to sort your mold problem?</h3>
+    <p class="qpop-body">Get a free, no-obligation quote on WhatsApp in under a minute. No forms. No waiting. Just send a few photos and your address.</p>
+    <a href="https://wa.me/27834727307" target="_blank" rel="noopener" class="btn-whatsapp" style="display:inline-flex;margin:0 auto;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      Get Your Free Quote
+    </a>
+  </div>
+</div>
+
 <script>
   /* ── Sticky nav shadow ── */
   const nav = document.getElementById('nav');
@@ -1813,17 +1903,38 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* ── Contact form (display success state) ── */
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name  = this.name.value.trim();
-    const phone = this.phone.value.trim();
-    const msg   = this.message.value.trim();
-    if (!name || !phone || !msg) return;
-    this.style.display = 'none';
-    document.getElementById('form-success').classList.add('show');
-    /* TODO: wire to a backend / Formspree / Netlify Forms here */
-  });
+  /* ── Quote popup ── */
+  (function () {
+    const overlay = document.getElementById('qpop-overlay');
+    const closeBtn = document.getElementById('qpop-close');
+    if (!overlay || sessionStorage.getItem('qpop-seen')) return;
+
+    function show() {
+      overlay.classList.add('open');
+      requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+      document.body.style.overflow = 'hidden';
+    }
+    function hide() {
+      overlay.classList.remove('visible');
+      setTimeout(() => { overlay.classList.remove('open'); }, 350);
+      document.body.style.overflow = '';
+      sessionStorage.setItem('qpop-seen', '1');
+    }
+
+    let triggered = false;
+    window.addEventListener('scroll', function () {
+      if (triggered) return;
+      const pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (pct >= 0.5) {
+        triggered = true;
+        setTimeout(show, 500);
+      }
+    }, { passive: true });
+
+    closeBtn.addEventListener('click', hide);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) hide(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  })();
 
   /* ── Before/after comparison sliders ── */
   document.querySelectorAll('[data-comparison]').forEach(el => {
