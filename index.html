@@ -207,12 +207,21 @@
       gap: 10px;
       color: #f8fcfe;
     }
-    /* Inline logo mark — replace src with actual logo file when available */
-    .nav-logo img {
-      height: 44px;
-      width: 44px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
+    /* Logo mark: crops icon portion only, hides "BIOCLEAN" text from source image */
+    .nav-logo-mark {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: rgba(255,255,255,.92);
+      flex-shrink: 0;
+    }
+    .nav-logo-mark img {
+      width: 40px;
+      height: 62px; /* 40 / .645 — reveals top 64.5% of square image = icon only */
+      display: block;
+      object-fit: cover;
+      object-position: center top;
     }
     .nav-logo-text { line-height: 1.15; }
     .nav-logo-name {
@@ -969,6 +978,26 @@
       flex-wrap: wrap;
       gap: var(--space-lg);
     }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-brand-mark {
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+      border-radius: 6px;
+      background: rgba(255,255,255,.85);
+      flex-shrink: 0;
+    }
+    .footer-brand-mark img {
+      width: 32px;
+      height: 50px;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
     .footer-brand strong {
       display: block;
       font-size: 0.9rem;
@@ -1001,16 +1030,9 @@
   <div class="container nav-inner">
 
     <a href="#" class="nav-logo" aria-label="BioClean Homecare home">
-      <!-- Replace with: <img src="logo.png" alt="BioClean Homecare logo"> -->
-      <svg class="nav-logo-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-        <!-- Water drop -->
-        <path d="M22 4 C22 4 12 18 12 25 C12 31.627 16.477 36 22 36 C27.523 36 32 31.627 32 25 C32 18 22 4 22 4Z" fill="#63b5ca"/>
-        <!-- House inside drop -->
-        <path d="M22 16 L17 21 H19 V27 H25 V21 H27 Z" fill="white" fill-opacity=".85"/>
-        <!-- Hand beneath -->
-        <path d="M10 34 C10 34 14 30 22 30 C30 30 34 34 34 34" stroke="#3590a2" stroke-width="3.5" stroke-linecap="round"/>
-        <ellipse cx="22" cy="36" rx="9" ry="4" fill="#2e8fa3" fill-opacity=".4"/>
-      </svg>
+      <div class="nav-logo-mark">
+        <img src="logo.jpg" alt="BioClean Homecare logo mark">
+      </div>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Bioclean</span>
         <span class="nav-logo-sub">Homecare</span>
@@ -1624,8 +1646,13 @@
 <footer>
   <div class="container footer-inner">
     <div class="footer-brand">
-      <strong>BioClean Homecare</strong>
-      <span>Professional Mold Removal &bull; East London, South Africa</span>
+      <div class="footer-brand-mark">
+        <img src="logo.jpg" alt="" aria-hidden="true">
+      </div>
+      <div>
+        <strong>BioClean Homecare</strong>
+        <span>Professional Mold Removal &bull; East London, South Africa</span>
+      </div>
     </div>
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="#services">Services</a>
