@@ -502,65 +502,88 @@
     /* ─── PAST WORK ──────────────────────────────────────────── */
     .past-work { background: var(--bg-alt); }
 
+    /* ─── PAST WORK / COMPARISON SLIDERS ─────────────────────── */
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: var(--space-md);
     }
-    .work-item {
+    .work-card { display: flex; flex-direction: column; gap: 0.625rem; }
+    .work-card:last-child { grid-column: 1 / -1; }
+    .comparison {
       position: relative;
-      aspect-ratio: 4/3;
       border-radius: var(--r-lg);
       overflow: hidden;
-      cursor: pointer;
+      aspect-ratio: 4/3;
+      cursor: ew-resize;
+      user-select: none;
+      touch-action: none;
+      -webkit-tap-highlight-color: transparent;
     }
-    /* Placeholder state */
-    .work-placeholder {
+    .comp-after,
+    .comp-before {
       position: absolute;
       inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-md);
-      background: repeating-linear-gradient(
-        -45deg,
-        rgba(46,143,163,.04) 0px, rgba(46,143,163,.04) 10px,
-        transparent           10px, transparent           20px
-      ), var(--bg-card);
-      border: 2px dashed var(--border);
-      border-radius: var(--r-lg);
     }
-    .work-placeholder svg { color: var(--text-muted); opacity: .6; }
-    .work-placeholder span {
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-    /* Real image state (add class "has-image" + <img>) */
-    .work-item.has-image .work-placeholder { display: none; }
-    .work-item img {
+    .comp-after img,
+    .comp-before img {
       width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform .5s var(--ease-expo);
+      display: block;
+      pointer-events: none;
+      -webkit-user-drag: none;
     }
-    .work-overlay {
+    .comp-before { clip-path: inset(0 50% 0 0); }
+    .comp-handle {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(28,77,93,.85) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity .3s var(--ease-quart);
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: rgba(255,255,255,.9);
+      transform: translateX(-50%);
+      z-index: 4;
+      pointer-events: none;
+    }
+    .comp-knob {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px;
+      background: #fafcfd;
+      border-radius: 50%;
+      box-shadow: 0 2px 16px rgba(28,77,93,.32);
       display: flex;
-      align-items: flex-end;
-      padding: var(--space-lg);
+      align-items: center;
+      justify-content: center;
     }
-    .work-overlay span {
-      color: #f8fcfe;
+    .comp-badge {
+      position: absolute;
+      bottom: 0.75rem;
+      z-index: 3;
+      background: rgba(23,51,62,.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #e8f6fb;
+      font-size: 0.6875rem;
       font-weight: 600;
-      font-size: 0.9375rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.625rem;
+      border-radius: 4px;
+      pointer-events: none;
     }
-    .work-item:hover .work-overlay { opacity: 1; }
-    .work-item:hover img          { transform: scale(1.05); }
+    .comp-badge-before { left: 0.75rem; }
+    .comp-badge-after  { right: 0.75rem; }
+    .work-caption {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 0 0.125rem;
+    }
+    @media (max-width: 640px) {
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card:last-child { grid-column: auto; }
+    }
 
     /* ─── WHY NOT PAINT ──────────────────────────────────────── */
     .no-paint { background: var(--teal-deep); }
@@ -1157,82 +1180,106 @@
     <div class="section-header reveal">
       <span class="t-eyebrow">Our Work</span>
       <h2 class="t-headline" id="work-heading">Results That Speak for Themselves</h2>
-      <p>Before and after documentation of real jobs across East London. Photos updated as we complete new projects.</p>
+      <p>Real jobs across East London. Drag the handle on each image to reveal the full transformation.</p>
     </div>
 
     <div class="work-grid">
-      <!-- To activate: add class "has-image" to .work-item, add <img> inside, and fill in .work-overlay span -->
-      <div class="work-item reveal delay-1">
-        <div class="work-placeholder" aria-label="Project photo coming soon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="18" height="18" x="3" y="3" rx="2"/>
-            <circle cx="9" cy="9" r="2"/>
-            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-          </svg>
-          <span>Photo coming soon</span>
+
+      <div class="work-card reveal delay-1">
+        <div class="comparison" data-comparison>
+          <div class="comp-after">
+            <img src="images/pool-strip-after.jpg" alt="Pool surround tiles after cleaning — clean terracotta restored">
+          </div>
+          <div class="comp-before">
+            <img src="images/pool-strip-before.jpg" alt="Pool surround tiles before cleaning — covered in black mold">
+            <span class="comp-badge comp-badge-before">Before</span>
+          </div>
+          <span class="comp-badge comp-badge-after">After</span>
+          <div class="comp-handle">
+            <div class="comp-knob">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 18 4 12 10 6"/><polyline points="14 6 20 12 14 18"/></svg>
+            </div>
+          </div>
         </div>
-        <div class="work-overlay"><span>Ventilation Mold – Residential</span></div>
+        <p class="work-caption">Pool Surround · Residential, East London</p>
       </div>
 
-      <div class="work-item reveal delay-2">
-        <div class="work-placeholder" aria-label="Project photo coming soon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="18" height="18" x="3" y="3" rx="2"/>
-            <circle cx="9" cy="9" r="2"/>
-            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-          </svg>
-          <span>Photo coming soon</span>
+      <div class="work-card reveal delay-2">
+        <div class="comparison" data-comparison>
+          <div class="comp-after">
+            <img src="images/roof-after.jpg" alt="Roof tiles after cleaning — vivid terracotta colour restored">
+          </div>
+          <div class="comp-before">
+            <img src="images/roof-before.jpg" alt="Roof tiles before cleaning — near-black mold coverage">
+            <span class="comp-badge comp-badge-before">Before</span>
+          </div>
+          <span class="comp-badge comp-badge-after">After</span>
+          <div class="comp-handle">
+            <div class="comp-knob">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 18 4 12 10 6"/><polyline points="14 6 20 12 14 18"/></svg>
+            </div>
+          </div>
         </div>
-        <div class="work-overlay"><span>Structural Mold – Bathroom</span></div>
+        <p class="work-caption">Roof Tiles · Residential, East London</p>
       </div>
 
-      <div class="work-item reveal delay-3">
-        <div class="work-placeholder" aria-label="Project photo coming soon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="18" height="18" x="3" y="3" rx="2"/>
-            <circle cx="9" cy="9" r="2"/>
-            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-          </svg>
-          <span>Photo coming soon</span>
+      <div class="work-card reveal delay-3">
+        <div class="comparison" data-comparison>
+          <div class="comp-after">
+            <img src="images/patio-after.jpg" alt="Garden patio after cleaning — golden stone tiles fully restored">
+          </div>
+          <div class="comp-before">
+            <img src="images/patio-before.jpg" alt="Garden patio before cleaning — dark mold and algae across tiles">
+            <span class="comp-badge comp-badge-before">Before</span>
+          </div>
+          <span class="comp-badge comp-badge-after">After</span>
+          <div class="comp-handle">
+            <div class="comp-knob">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 18 4 12 10 6"/><polyline points="14 6 20 12 14 18"/></svg>
+            </div>
+          </div>
         </div>
-        <div class="work-overlay"><span>Commercial Kitchen Treatment</span></div>
+        <p class="work-caption">Garden Patio · Residential, East London</p>
       </div>
 
-      <div class="work-item reveal delay-4">
-        <div class="work-placeholder" aria-label="Project photo coming soon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="18" height="18" x="3" y="3" rx="2"/>
-            <circle cx="9" cy="9" r="2"/>
-            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-          </svg>
-          <span>Photo coming soon</span>
+      <div class="work-card reveal delay-4">
+        <div class="comparison" data-comparison>
+          <div class="comp-after">
+            <img src="images/steps-after.jpg" alt="Entrance steps after cleaning — warm sandstone restored">
+          </div>
+          <div class="comp-before">
+            <img src="images/steps-before.jpg" alt="Entrance steps before cleaning — mold staining throughout">
+            <span class="comp-badge comp-badge-before">Before</span>
+          </div>
+          <span class="comp-badge comp-badge-after">After</span>
+          <div class="comp-handle">
+            <div class="comp-knob">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 18 4 12 10 6"/><polyline points="14 6 20 12 14 18"/></svg>
+            </div>
+          </div>
         </div>
-        <div class="work-overlay"><span>Ceiling Mold – Popcorn Texture</span></div>
+        <p class="work-caption">Entrance Steps · Residential, East London</p>
       </div>
 
-      <div class="work-item reveal delay-5">
-        <div class="work-placeholder" aria-label="Project photo coming soon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="18" height="18" x="3" y="3" rx="2"/>
-            <circle cx="9" cy="9" r="2"/>
-            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-          </svg>
-          <span>Photo coming soon</span>
+      <div class="work-card reveal delay-5">
+        <div class="comparison" data-comparison>
+          <div class="comp-after">
+            <img src="images/pool-deck-after.jpg" alt="Pool deck after cleaning — clean stone tiles beside pool">
+          </div>
+          <div class="comp-before">
+            <img src="images/pool-deck-before.jpg" alt="Pool deck before cleaning — algae and mold across all tiles">
+            <span class="comp-badge comp-badge-before">Before</span>
+          </div>
+          <span class="comp-badge comp-badge-after">After</span>
+          <div class="comp-handle">
+            <div class="comp-knob">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 18 4 12 10 6"/><polyline points="14 6 20 12 14 18"/></svg>
+            </div>
+          </div>
         </div>
-        <div class="work-overlay"><span>Office Space – Structural Damp</span></div>
+        <p class="work-caption">Pool Deck · Residential, East London</p>
       </div>
 
-      <div class="work-item reveal delay-6">
-        <div class="work-placeholder" aria-label="Project photo coming soon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="18" height="18" x="3" y="3" rx="2"/>
-            <circle cx="9" cy="9" r="2"/>
-            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-          </svg>
-          <span>Photo coming soon</span>
-        </div>
-        <div class="work-overlay"><span>Warehouse – Full Remediation</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -1507,6 +1554,28 @@
     this.style.display = 'none';
     document.getElementById('form-success').classList.add('show');
     /* TODO: wire to a backend / Formspree / Netlify Forms here */
+  });
+
+  /* ── Before/after comparison sliders ── */
+  document.querySelectorAll('[data-comparison]').forEach(el => {
+    const before = el.querySelector('.comp-before');
+    const handle = el.querySelector('.comp-handle');
+    let active = false;
+
+    function move(x) {
+      const r = el.getBoundingClientRect();
+      let pct = ((x - r.left) / r.width) * 100;
+      pct = Math.max(2, Math.min(98, pct));
+      before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      handle.style.left = pct + '%';
+    }
+
+    el.addEventListener('mousedown',  e => { active = true; move(e.clientX); e.preventDefault(); });
+    window.addEventListener('mousemove', e => { if (active) move(e.clientX); });
+    window.addEventListener('mouseup',   () => { active = false; });
+    el.addEventListener('touchstart', e => { active = true; move(e.touches[0].clientX); }, { passive: true });
+    el.addEventListener('touchmove',  e => { if (active) { e.preventDefault(); move(e.touches[0].clientX); } }, { passive: false });
+    el.addEventListener('touchend',   () => { active = false; });
   });
 
   /* ── Footer year ── */
