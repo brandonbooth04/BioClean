@@ -1087,14 +1087,15 @@
       justify-content: center;
       padding: var(--space-lg);
       opacity: 0;
+      pointer-events: none;
       transition: opacity .35s;
     }
     .qpop-overlay.open {
       display: flex;
-      opacity: 0;
     }
     .qpop-overlay.visible {
       opacity: 1;
+      pointer-events: auto;
     }
     .qpop {
       position: relative;
@@ -1940,22 +1941,24 @@
   document.querySelectorAll('[data-comparison]').forEach(el => {
     const before = el.querySelector('.comp-before');
     const handle = el.querySelector('.comp-handle');
-    let active = false;
 
     function move(x) {
       const r = el.getBoundingClientRect();
-      let pct = ((x - r.left) / r.width) * 100;
-      pct = Math.max(2, Math.min(98, pct));
+      let pct = Math.max(2, Math.min(98, ((x - r.left) / r.width) * 100));
       before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
       handle.style.left = pct + '%';
     }
 
-    el.addEventListener('mousedown',  e => { active = true; move(e.clientX); e.preventDefault(); });
-    window.addEventListener('mousemove', e => { if (active) move(e.clientX); });
-    window.addEventListener('mouseup',   () => { active = false; });
-    el.addEventListener('touchstart', e => { active = true; move(e.touches[0].clientX); }, { passive: true });
-    el.addEventListener('touchmove',  e => { if (active) { e.preventDefault(); move(e.touches[0].clientX); } }, { passive: false });
-    el.addEventListener('touchend',   () => { active = false; });
+    el.addEventListener('pointerdown', e => {
+      el.setPointerCapture(e.pointerId);
+      move(e.clientX);
+      e.preventDefault();
+    });
+    el.addEventListener('pointermove', e => {
+      if (el.hasPointerCapture(e.pointerId)) move(e.clientX);
+    });
+    el.addEventListener('pointerup',     e => el.releasePointerCapture(e.pointerId));
+    el.addEventListener('pointercancel', e => el.releasePointerCapture(e.pointerId));
   });
 
   /* ── Footer year ── */
