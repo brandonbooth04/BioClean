@@ -341,12 +341,12 @@
       position: absolute;
       top: 0;
       height: 14rem;
-      width: 30rem;
+      width: min(30rem, 45vw + 4rem);
       animation: lamp-widen .9s .25s var(--ease-expo) both;
     }
     @keyframes lamp-widen {
       from { opacity: 0.4; width: 8rem; }
-      to   { opacity: 1;   width: 30rem; }
+      to   { opacity: 1;   width: min(30rem, 45vw + 4rem); }
     }
     .lamp-beam-l {
       right: 50%;
@@ -379,14 +379,14 @@
       left: 50%;
       transform: translateX(-50%);
       height: 1.5px;
-      width: 30rem;
+      width: min(30rem, 85vw);
       background: var(--teal-light);
       box-shadow: 0 0 24px 4px var(--teal-mid), 0 0 60px 12px rgba(46,143,163,.22);
       animation: lamp-line-grow .9s .25s var(--ease-expo) both;
     }
     @keyframes lamp-line-grow {
       from { width: 8rem; opacity: 0.4; }
-      to   { width: 30rem; opacity: 1; }
+      to   { width: min(30rem, 85vw); opacity: 1; }
     }
     /* Wide ambient haze below the lamp */
     .lamp-haze {
@@ -394,7 +394,7 @@
       top: calc(var(--nav-h) + 14rem);
       left: 50%;
       transform: translateX(-50%);
-      width: 32rem; height: 12rem;
+      width: min(32rem, 90vw); height: 12rem;
       border-radius: 50%;
       background: var(--teal-mid);
       filter: blur(64px);
@@ -403,7 +403,7 @@
     }
     @keyframes lamp-haze-in {
       from { opacity: 0; width: 8rem; }
-      to   { opacity: 0.18; width: 32rem; }
+      to   { opacity: 0.18; width: min(32rem, 90vw); }
     }
     /* Tight bright spot */
     .lamp-spot {
@@ -411,7 +411,7 @@
       top: calc(var(--nav-h) + 16rem);
       left: 50%;
       transform: translateX(-50%);
-      width: 16rem; height: 6rem;
+      width: min(16rem, 70vw); height: 6rem;
       border-radius: 50%;
       background: var(--teal-light);
       filter: blur(40px);
@@ -420,7 +420,7 @@
     }
     @keyframes lamp-spot-in {
       from { opacity: 0; width: 4rem; }
-      to   { opacity: 0.28; width: 16rem; }
+      to   { opacity: 0.28; width: min(16rem, 70vw); }
     }
     /* Dark floor to blend lamp into hero background */
     .lamp-floor {
@@ -430,6 +430,15 @@
       height: 10rem;
       background: linear-gradient(to bottom, transparent, var(--teal-deep));
       pointer-events: none;
+    }
+    /* Mobile: scale down beam heights and re-anchor vertical positions */
+    @media (max-width: 640px) {
+      .lamp-beams { height: 16rem; }
+      .lamp-beam-l, .lamp-beam-r { height: 10rem; }
+      .lamp-line  { top: calc(var(--nav-h) + 12.5rem); } /* 10rem × 1.25 */
+      .lamp-haze  { top: calc(var(--nav-h) + 10rem); height: 8rem; }
+      .lamp-spot  { top: calc(var(--nav-h) + 11rem); height: 4rem; }
+      .lamp-floor { top: calc(var(--nav-h) + 13rem); }
     }
     @media (prefers-reduced-motion: reduce) {
       .lamp-beam-l, .lamp-beam-r,
