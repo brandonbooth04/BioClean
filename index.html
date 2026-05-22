@@ -826,29 +826,123 @@
     /* ─── CONTACT ────────────────────────────────────────────── */
     .contact { background: var(--teal-deep); }
 
-    .contact-grid {
+    /* Quote steps */
+    .quote-steps {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4xl);
-      align-items: start;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-lg);
+      margin: var(--space-3xl) 0;
+      position: relative;
     }
-    @media (max-width: 900px) {
-      .contact-grid { grid-template-columns: 1fr; gap: var(--space-3xl); }
+    .quote-steps::before {
+      content: '';
+      position: absolute;
+      top: 19px;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(to right,
+        rgba(99,181,202,.08),
+        rgba(99,181,202,.35) 20%,
+        rgba(99,181,202,.35) 80%,
+        rgba(99,181,202,.08));
+      pointer-events: none;
     }
-    .contact-info h2 {
-      color: #f8fcfe;
-      margin-bottom: var(--space-md);
-    }
-    .contact-info > p {
-      color: rgba(248,252,254,.65);
-      margin-bottom: var(--space-2xl);
-      max-width: 44ch;
-      line-height: 1.7;
-    }
-    .contact-details {
+    .quote-step {
       display: flex;
       flex-direction: column;
-      gap: var(--space-lg);
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .quote-step-num {
+      width: 38px; height: 38px;
+      background: var(--teal-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: #f8fcfe;
+      margin-bottom: var(--space-md);
+      box-shadow: 0 0 0 5px rgba(46,143,163,.18);
+      flex-shrink: 0;
+    }
+    .quote-step h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #f8fcfe;
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+    .quote-step p {
+      font-size: 0.8125rem;
+      color: rgba(248,252,254,.58);
+      line-height: 1.6;
+    }
+    .quote-step p a {
+      color: var(--teal-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .quote-step p a:hover { text-decoration: underline; }
+    @media (max-width: 860px) {
+      .quote-steps {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .quote-steps::before { display: none; }
+      .quote-step {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        gap: var(--space-md);
+        padding: var(--space-lg) 0;
+        border-bottom: 1px solid rgba(99,181,202,.1);
+      }
+      .quote-step:last-child { border-bottom: none; }
+      .quote-step-num { margin-bottom: 0; }
+    }
+
+    /* WhatsApp CTA */
+    .quote-cta {
+      text-align: center;
+      margin: var(--space-2xl) 0 var(--space-3xl);
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-md);
+      background: #25D366;
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: var(--r-pill);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: background .2s var(--ease-quart),
+                  transform  .2s var(--ease-quart),
+                  box-shadow .2s;
+    }
+    .btn-whatsapp:hover {
+      background: #1aad52;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px rgba(37,211,102,.35);
+    }
+    .btn-whatsapp:focus-visible { outline: 2px solid #25D366; outline-offset: 3px; }
+
+    /* Contact detail row */
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-3xl);
+      padding-top: var(--space-2xl);
+      border-top: 1px solid rgba(99,181,202,.14);
     }
     .contact-row {
       display: flex;
@@ -857,7 +951,7 @@
     }
     .contact-row-icon {
       width: 42px; height: 42px;
-      background: rgba(99,181,202,.14);
+      background: rgba(99,181,202,.12);
       border-radius: var(--r-sm);
       display: flex;
       align-items: center;
@@ -878,92 +972,8 @@
       font-weight: 500;
       color: #f8fcfe;
     }
-    .contact-row-val a { color: inherit; transition: color .2s; }
+    .contact-row-val a { color: inherit; transition: color .2s; text-decoration: none; }
     .contact-row-val a:hover { color: var(--teal-light); }
-
-    /* Form */
-    .contact-form-wrap {
-      background: rgba(248,252,254,.05);
-      border: 1px solid rgba(99,181,202,.18);
-      border-radius: var(--r-lg);
-      padding: var(--space-2xl);
-    }
-    .form-group { margin-bottom: var(--space-lg); }
-    .form-label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: rgba(248,252,254,.6);
-      margin-bottom: var(--space-sm);
-    }
-    .form-input {
-      width: 100%;
-      background: rgba(248,252,254,.07);
-      border: 1px solid rgba(99,181,202,.22);
-      border-radius: var(--r-sm);
-      color: #f8fcfe;
-      font-family: inherit;
-      font-size: 0.9375rem;
-      padding: 12px 14px;
-      outline: none;
-      transition: border-color .2s, background .2s, box-shadow .2s;
-    }
-    .form-input::placeholder { color: rgba(248,252,254,.28); }
-    .form-input:focus {
-      border-color: var(--teal-light);
-      background: rgba(248,252,254,.1);
-      box-shadow: 0 0 0 3px rgba(99,181,202,.14);
-    }
-    textarea.form-input { resize: vertical; min-height: 110px; }
-    .form-submit {
-      width: 100%;
-      background: var(--teal-mid);
-      color: #f8fcfe;
-      border: none;
-      border-radius: var(--r-sm);
-      padding: 14px;
-      font-family: inherit;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      margin-top: var(--space-sm);
-      transition: background .2s var(--ease-quart),
-                  transform  .2s var(--ease-quart),
-                  box-shadow .2s;
-    }
-    .form-submit:hover {
-      background: #267e91;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(46,143,163,.3);
-    }
-    .form-submit:focus-visible { outline: 2px solid var(--teal-light); outline-offset: 3px; }
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: var(--space-2xl) var(--space-xl);
-    }
-    .form-success.show { display: block; }
-    .success-circle {
-      width: 56px; height: 56px;
-      background: rgba(46,143,163,.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto var(--space-md);
-      color: var(--teal-light);
-    }
-    .form-success h3 {
-      color: #f8fcfe;
-      font-size: 1.2rem;
-      margin-bottom: var(--space-sm);
-    }
-    .form-success p {
-      color: rgba(248,252,254,.6);
-      font-size: 0.9rem;
-    }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
@@ -1566,77 +1576,94 @@
 <!-- ═══════════════════════════════ CONTACT ═══════ -->
 <section class="contact section-pad on-dark" id="contact" aria-labelledby="contact-heading">
   <div class="container">
-    <div class="contact-grid">
 
-      <!-- Left: info -->
-      <div class="reveal">
-        <span class="t-eyebrow" style="display:block;margin-bottom:var(--space-md);">Get in Touch</span>
-        <h2 class="t-headline" id="contact-heading">Ready to Fix the Mold Problem?</h2>
-        <p>We offer free, no-obligation assessments across East London. Describe your problem below and we'll get back to you quickly — or call us directly if you'd prefer to talk first.</p>
+    <div class="section-header reveal">
+      <span class="t-eyebrow">Free Quote</span>
+      <h2 class="t-headline" id="contact-heading">Get Your Free No-Obligation Quote</h2>
+      <p>No forms. No waiting. Our entire quotation process runs on WhatsApp — fast, simple, and pressure-free.</p>
+    </div>
 
-        <div class="contact-details" style="margin-top: var(--space-2xl);">
-          <div class="contact-row">
-            <div class="contact-row-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.55 2 2 0 0 1 3.58 1.37h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.7-1.82a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-            </div>
-            <div>
-              <div class="contact-row-lbl">Phone</div>
-              <div class="contact-row-val"><a href="tel:0834727307">083 472 7307</a></div>
-            </div>
-          </div>
+    <div class="quote-steps">
 
-          <div class="contact-row">
-            <div class="contact-row-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </div>
-            <div>
-              <div class="contact-row-lbl">Email</div>
-              <div class="contact-row-val"><a href="mailto:biocleanel@gmail.com">biocleanel@gmail.com</a></div>
-            </div>
-          </div>
-
-          <div class="contact-row">
-            <div class="contact-row-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="contact-row-lbl">Service Area</div>
-              <div class="contact-row-val">Jan Frederick, Gonubie &amp; East London</div>
-            </div>
-          </div>
+      <div class="quote-step reveal delay-1">
+        <div class="quote-step-num" aria-hidden="true">1</div>
+        <div>
+          <h3>Send us a WhatsApp</h3>
+          <p>Message us directly on <a href="https://wa.me/27834727307" target="_blank" rel="noopener">083 472 7307</a> to kick things off.</p>
         </div>
       </div>
 
-      <!-- Right: form -->
-      <div class="reveal delay-2">
-        <div class="contact-form-wrap">
-          <form id="contact-form" novalidate>
-            <div class="form-group">
-              <label class="form-label" for="fname">Your Name</label>
-              <input class="form-input" type="text" id="fname" name="name" placeholder="First and last name" required autocomplete="name">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fphone">Phone Number</label>
-              <input class="form-input" type="tel" id="fphone" name="phone" placeholder="Your contact number" required autocomplete="tel">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fmessage">Describe the Problem</label>
-              <textarea class="form-input" id="fmessage" name="message" placeholder="Where is the mold? What type of property? Any other details..." required></textarea>
-            </div>
-            <button type="submit" class="form-submit btn">Send Message &amp; Request Assessment</button>
-          </form>
+      <div class="quote-step reveal delay-2">
+        <div class="quote-step-num" aria-hidden="true">2</div>
+        <div>
+          <h3>Share a few photos</h3>
+          <p>Send pictures of the affected areas so we can assess the extent of the problem.</p>
+        </div>
+      </div>
 
-          <div class="form-success" id="form-success">
-            <div class="success-circle" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h3>Message Received</h3>
-            <p>Thank you — we'll be in touch shortly to arrange your free assessment.</p>
-          </div>
+      <div class="quote-step reveal delay-3">
+        <div class="quote-step-num" aria-hidden="true">3</div>
+        <div>
+          <h3>Include your address</h3>
+          <p>Let us know your property address so we can factor in location and access.</p>
+        </div>
+      </div>
+
+      <div class="quote-step reveal delay-4">
+        <div class="quote-step-num" aria-hidden="true">4</div>
+        <div>
+          <h3>Receive your quote</h3>
+          <p>We determine the cost and send your free, no-obligation quote back via WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="quote-step reveal delay-5">
+        <div class="quote-step-num" aria-hidden="true">5</div>
+        <div>
+          <h3>We book you in</h3>
+          <p>Accept the quote and we schedule your mold removal at a time that suits you.</p>
         </div>
       </div>
 
     </div>
+
+    <div class="quote-cta reveal">
+      <a href="https://wa.me/27834727307" target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Start Your Free Quote on WhatsApp
+      </a>
+    </div>
+
+    <div class="contact-details reveal">
+      <div class="contact-row">
+        <div class="contact-row-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.55 2 2 0 0 1 3.58 1.37h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.7-1.82a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-lbl">Call or WhatsApp</div>
+          <div class="contact-row-val"><a href="tel:0834727307">083 472 7307</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-lbl">Email</div>
+          <div class="contact-row-val"><a href="mailto:biocleanel@gmail.com">biocleanel@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-row-lbl">Service Area</div>
+          <div class="contact-row-val">Jan Frederickse, Gonubie &amp; East London</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
