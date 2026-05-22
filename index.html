@@ -318,7 +318,8 @@
       transition: color .2s;
     }
     .drawer-social a:hover { color: var(--teal-light); }
-    @media (max-width: 900px) { .nav-links { display: none; } .nav-social { display: none; } }
+    @media (max-width: 900px) { .nav-links { display: none; } }
+    @media (max-width: 640px) { .nav-social { gap: 0.5rem; } .nav-social a svg { width: 16px; height: 16px; } }
     @media (max-width: 640px) {
       .nav-phone .nav-phone-label { display: none; }
       .nav-hamburger { display: block; }
