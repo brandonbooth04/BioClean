@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BioClean Homecare – Professional mold removal and remediation in East London. Safe, family-friendly products. Free estimates. Call 083 472 7307.">
+  <title>BioClean Homecare | Professional Mold Removal – East London</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --teal-deep:    #1c4d5d;
+      --teal-deeper:  #12333f;
+      --teal-mid:     #2e8fa3;
+      --teal-light:   #63b5ca;
+      --teal-pale:    #c6e8f1;
+      --teal-ghost:   rgba(46,143,163,.1);
+
+      --bg-base:      #f2f8fb;
+      --bg-alt:       #e6f2f7;
+      --bg-card:      #fafcfd;
+
+      --text-primary:   #17333e;
+      --text-secondary: #3b6878;
+      --text-muted:     #6b97a6;
+      --border:         #cde3ea;
+
+      --space-xs:  4px;
+      --space-sm:  8px;
+      --space-md:  16px;
+      --space-lg:  24px;
+      --space-xl:  32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+
+      --r-sm:   6px;
+      --r-md:   10px;
+      --r-lg:   16px;
+      --r-pill: 100px;
+
+      --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+      --shadow-lift: 0 8px 32px rgba(28,77,93,.18);
+      --shadow-card: 0 2px 12px rgba(28,77,93,.08);
+
+      --nav-h: 72px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-optical-sizing: auto; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    h1,h2,h3,h4 { text-wrap: balance; font-kerning: normal; }
+    p    { text-wrap: pretty; }
+
+    /* ─── TYPE SCALE ─────────────────────────────────────────── */
+    .t-display {
+      font-size: clamp(2.5rem, 5vw + 1rem, 4.75rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+    }
+    .t-headline {
+      font-size: clamp(1.75rem, 3vw + 0.5rem, 2.75rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+    }
+    .t-title {
+      font-size: clamp(1.1rem, 1.5vw + 0.3rem, 1.4rem);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .t-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+    }
+    .on-dark .t-eyebrow { color: var(--teal-pale); }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+    .section-pad { padding: var(--space-4xl) 0; }
+
+    .section-header { margin-bottom: var(--space-3xl); }
+    .section-header .t-eyebrow { display: block; margin-bottom: var(--space-md); }
+    .section-header h2 { margin-bottom: var(--space-md); }
+    .section-header p  { color: var(--text-secondary); max-width: 58ch; }
+    .on-dark .section-header h2 { color: #f8fcfe; }
+    .on-dark .section-header p  { color: rgba(248,252,254,.65); }
+
+    @media (max-width: 768px) {
+      .container   { padding: 0 var(--space-lg); }
+      .section-pad { padding: var(--space-3xl) 0; }
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s var(--ease-expo), transform .6s var(--ease-expo);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .delay-1 { transition-delay: .08s; }
+    .delay-2 { transition-delay: .16s; }
+    .delay-3 { transition-delay: .24s; }
+    .delay-4 { transition-delay: .32s; }
+    .delay-5 { transition-delay: .40s; }
+    .delay-6 { transition-delay: .48s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ─── BUTTONS ────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 14px 28px;
+      border-radius: var(--r-sm);
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: none;
+      cursor: pointer;
+      transition: background .2s var(--ease-quart),
+                  transform  .2s var(--ease-quart),
+                  box-shadow .2s var(--ease-quart);
+    }
+    .btn:focus-visible { outline: 2px solid var(--teal-light); outline-offset: 3px; }
+    .btn-primary {
+      background: var(--teal-mid);
+      color: #f8fcfe;
+    }
+    .btn-primary:hover {
+      background: #267e91;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lift);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: rgba(248,252,254,.85);
+      border: 1.5px solid rgba(248,252,254,.25);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(248,252,254,.55);
+      background: rgba(248,252,254,.06);
+      color: #f8fcfe;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--teal-deep);
+      border: 1.5px solid var(--teal-mid);
+    }
+    .btn-outline:hover {
+      background: var(--teal-ghost);
+      transform: translateY(-2px);
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 200;
+      height: var(--nav-h);
+      background: var(--teal-deep);
+      transition: box-shadow .3s var(--ease-quart), background .3s;
+    }
+    .nav.scrolled {
+      background: rgba(28,77,93,.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.22);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f8fcfe;
+    }
+    /* Inline logo mark — replace src with actual logo file when available */
+    .nav-logo img {
+      height: 44px;
+      width: 44px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+    .nav-logo-text { line-height: 1.15; }
+    .nav-logo-name {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f8fcfe;
+    }
+    .nav-logo-sub {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--teal-pale);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(248,252,254,.75);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #f8fcfe; }
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: #f8fcfe;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      white-space: nowrap;
+    }
+    .nav-phone svg { color: var(--teal-light); flex-shrink: 0; }
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #f8fcfe;
+      cursor: pointer;
+      padding: var(--space-sm);
+    }
+
+    /* Mobile nav */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: var(--nav-h) 0 0;
+      background: var(--teal-deeper);
+      z-index: 199;
+      flex-direction: column;
+      padding: var(--space-xl);
+      gap: var(--space-lg);
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      color: rgba(248,252,254,.85);
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid rgba(248,252,254,.08);
+    }
+
+    @media (max-width: 900px) { .nav-links { display: none; } }
+    @media (max-width: 640px) {
+      .nav-phone .nav-phone-label { display: none; }
+      .nav-hamburger { display: block; }
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      background: var(--teal-deep);
+      padding-top: var(--nav-h);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle radial atmosphere */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 75% 65% at 85% 35%, rgba(46,143,163,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 50% at 15% 75%, rgba(46,143,163,.1)  0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: var(--space-4xl) 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3xl);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: rgba(99,181,202,.12);
+      border: 1px solid rgba(99,181,202,.28);
+      color: var(--teal-pale);
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-bottom: var(--space-lg);
+      width: fit-content;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      color: #f8fcfe;
+      max-width: 13ch;
+      margin-bottom: var(--space-xl);
+    }
+    .hero-lead {
+      font-size: clamp(1rem, 1.5vw + .4rem, 1.2rem);
+      color: rgba(248,252,254,.72);
+      max-width: 50ch;
+      line-height: 1.7;
+      margin-bottom: var(--space-2xl);
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    .hero-divider {
+      margin-top: var(--space-4xl);
+      padding-top: var(--space-2xl);
+      border-top: 1px solid rgba(99,181,202,.18);
+      display: flex;
+      gap: var(--space-3xl);
+      flex-wrap: wrap;
+    }
+    .hero-stat-val {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f8fcfe;
+      line-height: 1;
+    }
+    .hero-stat-lbl {
+      font-size: 0.8125rem;
+      color: rgba(248,252,254,.5);
+      margin-top: 4px;
+    }
+
+    /* ─── SERVICES ───────────────────────────────────────────── */
+    .services { background: var(--bg-base); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-lg);
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: var(--space-2xl);
+      transition: transform .3s var(--ease-expo),
+                  box-shadow .3s var(--ease-expo),
+                  border-color .3s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift);
+      border-color: var(--teal-pale);
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(46,143,163,.1);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+      color: var(--teal-mid);
+    }
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--teal-deep);
+      margin-bottom: var(--space-sm);
+    }
+    .service-card p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ─── WHY US ─────────────────────────────────────────────── */
+    .why-us { background: var(--teal-deep); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-lg);
+    }
+    .why-card {
+      background: rgba(248,252,254,.05);
+      border: 1px solid rgba(99,181,202,.18);
+      border-radius: var(--r-lg);
+      padding: var(--space-2xl);
+      transition: background .3s var(--ease-quart), border-color .3s;
+    }
+    .why-card:hover {
+      background: rgba(248,252,254,.08);
+      border-color: rgba(99,181,202,.35);
+    }
+    .why-icon {
+      width: 48px; height: 48px;
+      background: rgba(99,181,202,.14);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+      color: var(--teal-light);
+    }
+    .why-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #f8fcfe;
+      margin-bottom: var(--space-sm);
+    }
+    .why-card p {
+      font-size: 0.9rem;
+      color: rgba(248,252,254,.6);
+      line-height: 1.65;
+    }
+
+    /* ─── SECTORS ────────────────────────────────────────────── */
+    .sectors { background: var(--bg-base); }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--space-md);
+    }
+    .sector-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-xl) var(--space-md);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      text-align: center;
+      transition: transform .3s var(--ease-expo),
+                  box-shadow .3s,
+                  border-color .3s;
+    }
+    .sector-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+      border-color: var(--teal-pale);
+    }
+    .sector-icon {
+      width: 44px; height: 44px;
+      color: var(--teal-mid);
+    }
+    .sector-item span {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    /* ─── PAST WORK ──────────────────────────────────────────── */
+    .past-work { background: var(--bg-alt); }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-md);
+    }
+    .work-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    /* Placeholder state */
+    .work-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(46,143,163,.04) 0px, rgba(46,143,163,.04) 10px,
+        transparent           10px, transparent           20px
+      ), var(--bg-card);
+      border: 2px dashed var(--border);
+      border-radius: var(--r-lg);
+    }
+    .work-placeholder svg { color: var(--text-muted); opacity: .6; }
+    .work-placeholder span {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    /* Real image state (add class "has-image" + <img>) */
+    .work-item.has-image .work-placeholder { display: none; }
+    .work-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s var(--ease-expo);
+    }
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,77,93,.85) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity .3s var(--ease-quart);
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-lg);
+    }
+    .work-overlay span {
+      color: #f8fcfe;
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+    .work-item:hover .work-overlay { opacity: 1; }
+    .work-item:hover img          { transform: scale(1.05); }
+
+    /* ─── WHY NOT PAINT ──────────────────────────────────────── */
+    .no-paint { background: var(--teal-deep); }
+
+    .paint-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+    .paint-card {
+      display: flex;
+      gap: var(--space-md);
+      padding: var(--space-xl);
+      background: rgba(248,252,254,.05);
+      border: 1px solid rgba(99,181,202,.14);
+      border-radius: var(--r-md);
+      transition: background .3s;
+    }
+    .paint-card:hover { background: rgba(248,252,254,.08); }
+    .paint-x {
+      width: 32px; height: 32px;
+      background: rgba(220,80,80,.16);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #e87070;
+    }
+    .paint-card h4 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #f8fcfe;
+      margin-bottom: 4px;
+    }
+    .paint-card p {
+      font-size: 0.875rem;
+      color: rgba(248,252,254,.55);
+      line-height: 1.6;
+    }
+
+    /* ─── REVIEWS ────────────────────────────────────────────── */
+    .reviews { background: var(--bg-base); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: var(--space-2xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      transition: transform .3s var(--ease-expo), box-shadow .3s;
+    }
+    .review-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+    }
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      color: #f5a623;
+    }
+    .review-quote {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+      position: relative;
+      padding-left: var(--space-lg);
+    }
+    .review-quote::before {
+      content: '\201C';
+      position: absolute;
+      left: 0;
+      top: -4px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--teal-pale);
+      line-height: 1;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .review-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(46,143,163,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--teal-mid);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+    .review-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    .contact { background: var(--teal-deep); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: var(--space-3xl); }
+    }
+    .contact-info h2 {
+      color: #f8fcfe;
+      margin-bottom: var(--space-md);
+    }
+    .contact-info > p {
+      color: rgba(248,252,254,.65);
+      margin-bottom: var(--space-2xl);
+      max-width: 44ch;
+      line-height: 1.7;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .contact-row-icon {
+      width: 42px; height: 42px;
+      background: rgba(99,181,202,.14);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal-light);
+      flex-shrink: 0;
+    }
+    .contact-row-lbl {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(248,252,254,.38);
+      margin-bottom: 2px;
+    }
+    .contact-row-val {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: #f8fcfe;
+    }
+    .contact-row-val a { color: inherit; transition: color .2s; }
+    .contact-row-val a:hover { color: var(--teal-light); }
+
+    /* Form */
+    .contact-form-wrap {
+      background: rgba(248,252,254,.05);
+      border: 1px solid rgba(99,181,202,.18);
+      border-radius: var(--r-lg);
+      padding: var(--space-2xl);
+    }
+    .form-group { margin-bottom: var(--space-lg); }
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(248,252,254,.6);
+      margin-bottom: var(--space-sm);
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(248,252,254,.07);
+      border: 1px solid rgba(99,181,202,.22);
+      border-radius: var(--r-sm);
+      color: #f8fcfe;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color .2s, background .2s, box-shadow .2s;
+    }
+    .form-input::placeholder { color: rgba(248,252,254,.28); }
+    .form-input:focus {
+      border-color: var(--teal-light);
+      background: rgba(248,252,254,.1);
+      box-shadow: 0 0 0 3px rgba(99,181,202,.14);
+    }
+    textarea.form-input { resize: vertical; min-height: 110px; }
+    .form-submit {
+      width: 100%;
+      background: var(--teal-mid);
+      color: #f8fcfe;
+      border: none;
+      border-radius: var(--r-sm);
+      padding: 14px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      margin-top: var(--space-sm);
+      transition: background .2s var(--ease-quart),
+                  transform  .2s var(--ease-quart),
+                  box-shadow .2s;
+    }
+    .form-submit:hover {
+      background: #267e91;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(46,143,163,.3);
+    }
+    .form-submit:focus-visible { outline: 2px solid var(--teal-light); outline-offset: 3px; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-2xl) var(--space-xl);
+    }
+    .form-success.show { display: block; }
+    .success-circle {
+      width: 56px; height: 56px;
+      background: rgba(46,143,163,.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-md);
+      color: var(--teal-light);
+    }
+    .form-success h3 {
+      color: #f8fcfe;
+      font-size: 1.2rem;
+      margin-bottom: var(--space-sm);
+    }
+    .form-success p {
+      color: rgba(248,252,254,.6);
+      font-size: 0.9rem;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--teal-deeper);
+      padding: var(--space-2xl) 0;
+      color: rgba(248,252,254,.5);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+    }
+    .footer-brand strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(248,252,254,.75);
+      margin-bottom: 2px;
+    }
+    .footer-brand span { font-size: 0.8rem; }
+    .footer-links {
+      display: flex;
+      gap: var(--space-xl);
+      font-size: 0.8125rem;
+    }
+    .footer-links a { color: rgba(248,252,254,.45); transition: color .2s; }
+    .footer-links a:hover { color: var(--teal-light); }
+    .footer-copy { font-size: 0.75rem; color: rgba(248,252,254,.28); }
+
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links  { flex-wrap: wrap; gap: var(--space-md); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ NAV ═══════ -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+
+    <a href="#" class="nav-logo" aria-label="BioClean Homecare home">
+      <!-- Replace with: <img src="logo.png" alt="BioClean Homecare logo"> -->
+      <svg class="nav-logo-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <!-- Water drop -->
+        <path d="M22 4 C22 4 12 18 12 25 C12 31.627 16.477 36 22 36 C27.523 36 32 31.627 32 25 C32 18 22 4 22 4Z" fill="#63b5ca"/>
+        <!-- House inside drop -->
+        <path d="M22 16 L17 21 H19 V27 H25 V21 H27 Z" fill="white" fill-opacity=".85"/>
+        <!-- Hand beneath -->
+        <path d="M10 34 C10 34 14 30 22 30 C30 30 34 34 34 34" stroke="#3590a2" stroke-width="3.5" stroke-linecap="round"/>
+        <ellipse cx="22" cy="36" rx="9" ry="4" fill="#2e8fa3" fill-opacity=".4"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Bioclean</span>
+        <span class="nav-logo-sub">Homecare</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#sectors">Sectors</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="tel:0834727307" class="nav-phone" aria-label="Call 083 472 7307">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.55 2 2 0 0 1 3.58 1.37h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.7-1.82a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/>
+      </svg>
+      <span class="nav-phone-label">083 472 7307</span>
+    </a>
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg id="ham-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
+  <a href="#services" class="drawer-link">Services</a>
+  <a href="#sectors"  class="drawer-link">Sectors We Serve</a>
+  <a href="#work"     class="drawer-link">Our Work</a>
+  <a href="#contact"  class="drawer-link">Contact Us</a>
+  <a href="tel:0834727307" style="color:#63b5ca;font-weight:700;margin-top:8px;">📞 083 472 7307</a>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════ HERO ══════ -->
+<section class="hero" id="hero" aria-labelledby="hero-heading">
+  <div class="container hero-content">
+    <div>
+      <div class="hero-badge reveal">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        East London's Local Mold Specialists
+      </div>
+
+      <h1 class="t-display reveal delay-1" id="hero-heading">
+        Mold Removed.<br>The Right Way.
+      </h1>
+
+      <p class="hero-lead reveal delay-2">
+        Family-run, community-rooted remediation experts in East London.
+        Non-toxic products, fair pricing, and a guarantee that the problem
+        is fixed — not just hidden.
+      </p>
+
+      <div class="hero-actions reveal delay-3">
+        <a href="#contact" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.55 2 2 0 0 1 3.58 1.37h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.7-1.82a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/>
+          </svg>
+          Get a Free Assessment
+        </a>
+        <a href="#services" class="btn btn-ghost">
+          Our Services
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-divider reveal delay-4">
+        <div>
+          <div class="hero-stat-val">Free</div>
+          <div class="hero-stat-lbl">Estimates, always</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">100%</div>
+          <div class="hero-stat-lbl">Non-toxic products</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">All</div>
+          <div class="hero-stat-lbl">Property types</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">Local</div>
+          <div class="hero-stat-lbl">East London based</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════ SERVICES ════ -->
+<section class="services section-pad" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="t-eyebrow">What We Do</span>
+      <h2 class="t-headline" id="services-heading">Specialist Mold Removal Services</h2>
+      <p>From poorly ventilated rooms to deep structural damp, we treat mold at its source — not just on the surface.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal delay-1">
+        <div class="service-icon" aria-hidden="true">
+          <!-- Ventilation / air waves icon -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+          </svg>
+        </div>
+        <h3>Ventilation Mold</h3>
+        <p>Mold caused by poor airflow and excess humidity. We address the root cause — inadequate ventilation — to deliver lasting results and protect indoor air quality.</p>
+      </div>
+
+      <div class="service-card reveal delay-2">
+        <div class="service-icon" aria-hidden="true">
+          <!-- Building / structural icon -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2"/>
+            <path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/>
+          </svg>
+        </div>
+        <h3>Structural Mold</h3>
+        <p>Moisture that has penetrated walls, floors, and ceilings. We treat hidden mold in bathrooms, behind cupboards, cracked walls, and poorly constructed spaces before it causes lasting damage.</p>
+      </div>
+
+      <div class="service-card reveal delay-3">
+        <div class="service-icon" aria-hidden="true">
+          <!-- House icon -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3>Residential</h3>
+        <p>Safe for families, children, and pets. Whether you're a tenant, homeowner, or landlord, we restore your property to a healthy, mold-free standard — with full post-cleaning guidance.</p>
+      </div>
+
+      <div class="service-card reveal delay-4">
+        <div class="service-icon" aria-hidden="true">
+          <!-- Office building icon -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+            <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/>
+          </svg>
+        </div>
+        <h3>Commercial</h3>
+        <p>Minimal disruption, maximum compliance. We serve restaurants, offices, schools, warehouses, and healthcare facilities — protecting staff health, brand reputation, and regulatory standing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ WHY US ═════ -->
+<section class="why-us section-pad on-dark" id="why-us" aria-labelledby="whyus-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="t-eyebrow">Why Choose Us</span>
+      <h2 class="t-headline" id="whyus-heading">What Sets BioClean Apart</h2>
+      <p>We live and work in East London. That local knowledge, combined with our family commitment to quality, means every job gets done properly.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal delay-1">
+        <div class="why-icon" aria-hidden="true">
+          <!-- Shield check -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <h3>Safe, Eco-Friendly Products</h3>
+        <p>Every product we use is non-toxic, family-safe, and kind to pets. Your health and comfort are our priority during and after every clean.</p>
+      </div>
+
+      <div class="why-card reveal delay-2">
+        <div class="why-icon" aria-hidden="true">
+          <!-- Tag / price -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+            <line x1="7" y1="7" x2="7.01" y2="7"/>
+          </svg>
+        </div>
+        <h3>Fair Prices, No Hidden Fees</h3>
+        <p>Free estimates, transparent quotes. Being part of this community means treating people right. No surprise charges — just honest, reliable service backed by our family name.</p>
+      </div>
+
+      <div class="why-card reveal delay-3">
+        <div class="why-icon" aria-hidden="true">
+          <!-- Clock -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>On Time, Every Time</h3>
+        <p>We show up when we say we will. We respect your space, work with minimal disruption, and leave your property clean — not just treated.</p>
+      </div>
+
+      <div class="why-card reveal delay-4">
+        <div class="why-icon" aria-hidden="true">
+          <!-- Map pin -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <h3>Rooted in the Community</h3>
+        <p>We understand East London's climate, seasonal humidity, and older housing stock. This local knowledge means we diagnose faster and fix it right the first time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SECTORS ════ -->
+<section class="sectors section-pad" id="sectors" aria-labelledby="sectors-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="t-eyebrow">Industries We Serve</span>
+      <h2 class="t-headline" id="sectors-heading">Mold Removal Across Every Property Type</h2>
+      <p>Residential or commercial, large or small — we bring the same standard of care to every building we work in.</p>
+    </div>
+
+    <div class="sectors-grid">
+      <div class="sector-item reveal delay-1">
+        <svg class="sector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Residential Homes</span>
+      </div>
+
+      <div class="sector-item reveal delay-2">
+        <svg class="sector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11l19-9-9 19-2-8-8-2z"/>
+        </svg>
+        <span>Commercial Kitchens</span>
+      </div>
+
+      <div class="sector-item reveal delay-3">
+        <svg class="sector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+        <span>Schools &amp; Education</span>
+      </div>
+
+      <div class="sector-item reveal delay-4">
+        <svg class="sector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="7" width="20" height="14" rx="2"/>
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          <line x1="12" y1="12" x2="12.01" y2="12"/>
+          <path d="M8 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>
+        </svg>
+        <span>Offices &amp; Retail</span>
+      </div>
+
+      <div class="sector-item reveal delay-5">
+        <svg class="sector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 20h20M4 20V8l8-6 8 6v12"/>
+          <path d="M10 20v-5h4v5"/>
+          <path d="M4 10h16"/>
+        </svg>
+        <span>Warehouses</span>
+      </div>
+
+      <div class="sector-item reveal delay-6">
+        <svg class="sector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+        </svg>
+        <span>Hospitality &amp; Healthcare</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ PAST WORK ══════ -->
+<section class="past-work section-pad" id="work" aria-labelledby="work-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="t-eyebrow">Our Work</span>
+      <h2 class="t-headline" id="work-heading">Results That Speak for Themselves</h2>
+      <p>Before and after documentation of real jobs across East London. Photos updated as we complete new projects.</p>
+    </div>
+
+    <div class="work-grid">
+      <!-- To activate: add class "has-image" to .work-item, add <img> inside, and fill in .work-overlay span -->
+      <div class="work-item reveal delay-1">
+        <div class="work-placeholder" aria-label="Project photo coming soon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+          <span>Photo coming soon</span>
+        </div>
+        <div class="work-overlay"><span>Ventilation Mold – Residential</span></div>
+      </div>
+
+      <div class="work-item reveal delay-2">
+        <div class="work-placeholder" aria-label="Project photo coming soon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+          <span>Photo coming soon</span>
+        </div>
+        <div class="work-overlay"><span>Structural Mold – Bathroom</span></div>
+      </div>
+
+      <div class="work-item reveal delay-3">
+        <div class="work-placeholder" aria-label="Project photo coming soon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+          <span>Photo coming soon</span>
+        </div>
+        <div class="work-overlay"><span>Commercial Kitchen Treatment</span></div>
+      </div>
+
+      <div class="work-item reveal delay-4">
+        <div class="work-placeholder" aria-label="Project photo coming soon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+          <span>Photo coming soon</span>
+        </div>
+        <div class="work-overlay"><span>Ceiling Mold – Popcorn Texture</span></div>
+      </div>
+
+      <div class="work-item reveal delay-5">
+        <div class="work-placeholder" aria-label="Project photo coming soon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+          <span>Photo coming soon</span>
+        </div>
+        <div class="work-overlay"><span>Office Space – Structural Damp</span></div>
+      </div>
+
+      <div class="work-item reveal delay-6">
+        <div class="work-placeholder" aria-label="Project photo coming soon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+          <span>Photo coming soon</span>
+        </div>
+        <div class="work-overlay"><span>Warehouse – Full Remediation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ WHY NOT PAINT ════ -->
+<section class="no-paint section-pad on-dark" id="no-paint" aria-labelledby="paint-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="t-eyebrow">Common Mistakes</span>
+      <h2 class="t-headline" id="paint-heading">Why Painting Over Mold Makes It Worse</h2>
+      <p>It's a common shortcut. Here's why it always fails — and why proper removal is the only real solution.</p>
+    </div>
+
+    <div class="paint-grid">
+      <div class="paint-card reveal delay-1">
+        <div class="paint-x" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div>
+          <h4>It Only Hides the Problem</h4>
+          <p>Paint covers the stain but leaves mold roots and spores fully intact beneath the surface — still active, still spreading.</p>
+        </div>
+      </div>
+
+      <div class="paint-card reveal delay-2">
+        <div class="paint-x" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div>
+          <h4>Mold Continues to Grow Beneath</h4>
+          <p>Even mold-resistant paint fails when the moisture source is still present. The colony keeps growing, unseen.</p>
+        </div>
+      </div>
+
+      <div class="paint-card reveal delay-3">
+        <div class="paint-x" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div>
+          <h4>Traps Moisture, Accelerates Spread</h4>
+          <p>Sealing mold under paint creates a warm, damp environment — ideal for further growth into walls, floors, and ceilings.</p>
+        </div>
+      </div>
+
+      <div class="paint-card reveal delay-4">
+        <div class="paint-x" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div>
+          <h4>Delays Treatment, Increases Cost</h4>
+          <p>Every week you wait, the mold spreads deeper. What could have been a straightforward fix becomes an extensive repair.</p>
+        </div>
+      </div>
+
+      <div class="paint-card reveal delay-5">
+        <div class="paint-x" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div>
+          <h4>A Legal and Liability Risk</h4>
+          <p>Concealing mold — particularly in rental or commercial properties — can constitute negligence and expose landlords and businesses to serious liability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ REVIEWS ═══════ -->
+<section class="reviews section-pad" id="reviews" aria-labelledby="reviews-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="t-eyebrow">Client Reviews</span>
+      <h2 class="t-headline" id="reviews-heading">What Our Clients Say</h2>
+      <p>From anxious first calls to completed jobs — here's how BioClean made a difference.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review-card reveal delay-1">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">We'd been battling mold in our bathroom for over a year. BioClean came out the next day, explained exactly what was causing it, and sorted it properly. No drama, no upselling — just a thorough job done right.</p>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">NM</div>
+          <div>
+            <div class="review-name">Nadia M.</div>
+            <div class="review-role">Homeowner, Gonubie</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal delay-2">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">As a landlord with several properties, I need people I can trust. BioClean has now treated three of my units. They're punctual, thorough, and the tenants never even notice them — which is exactly what I need.</p>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">SP</div>
+          <div>
+            <div class="review-name">Sipho P.</div>
+            <div class="review-role">Landlord, East London</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal delay-3">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">We called BioClean after finding mold in our restaurant kitchen before a health inspection. They came quickly, treated everything properly, and gave us documentation for the inspector. Absolute lifesavers.</p>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">LK</div>
+          <div>
+            <div class="review-name">Lerato K.</div>
+            <div class="review-role">Restaurant Owner, East London</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═══════ -->
+<section class="contact section-pad on-dark" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: info -->
+      <div class="reveal">
+        <span class="t-eyebrow" style="display:block;margin-bottom:var(--space-md);">Get in Touch</span>
+        <h2 class="t-headline" id="contact-heading">Ready to Fix the Mold Problem?</h2>
+        <p>We offer free, no-obligation assessments across East London. Describe your problem below and we'll get back to you quickly — or call us directly if you'd prefer to talk first.</p>
+
+        <div class="contact-details" style="margin-top: var(--space-2xl);">
+          <div class="contact-row">
+            <div class="contact-row-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.55 2 2 0 0 1 3.58 1.37h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.7-1.82a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-lbl">Phone</div>
+              <div class="contact-row-val"><a href="tel:0834727307">083 472 7307</a></div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-row-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-lbl">Email</div>
+              <div class="contact-row-val"><a href="mailto:biocleanel@gmail.com">biocleanel@gmail.com</a></div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-row-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-lbl">Service Area</div>
+              <div class="contact-row-val">Jan Frederick, Gonubie &amp; East London</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal delay-2">
+        <div class="contact-form-wrap">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="fname">Your Name</label>
+              <input class="form-input" type="text" id="fname" name="name" placeholder="First and last name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fphone">Phone Number</label>
+              <input class="form-input" type="tel" id="fphone" name="phone" placeholder="Your contact number" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fmessage">Describe the Problem</label>
+              <textarea class="form-input" id="fmessage" name="message" placeholder="Where is the mold? What type of property? Any other details..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit btn">Send Message &amp; Request Assessment</button>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <div class="success-circle" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Message Received</h3>
+            <p>Thank you — we'll be in touch shortly to arrange your free assessment.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════ FOOTER ════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <strong>BioClean Homecare</strong>
+      <span>Professional Mold Removal &bull; East London, South Africa</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#services">Services</a>
+      <a href="#sectors">Sectors</a>
+      <a href="#work">Our Work</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:0834727307">083 472 7307</a>
+    </nav>
+    <p class="footer-copy">&copy; <span id="yr"></span> BioClean Homecare. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  /* ── Sticky nav shadow ── */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ── Mobile hamburger ── */
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('nav-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    })
+  );
+
+  /* ── Scroll reveal (IntersectionObserver) ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ── Contact form (display success state) ── */
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name  = this.name.value.trim();
+    const phone = this.phone.value.trim();
+    const msg   = this.message.value.trim();
+    if (!name || !phone || !msg) return;
+    this.style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+    /* TODO: wire to a backend / Formspree / Netlify Forms here */
+  });
+
+  /* ── Footer year ── */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
