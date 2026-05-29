@@ -207,21 +207,20 @@
       gap: 10px;
       color: #f8fcfe;
     }
-    /* Logo mark: crops icon portion only, hides "BIOCLEAN" text from source image */
     .nav-logo-mark {
-      width: 40px;
-      height: 40px;
+      width: 52px;
+      height: 52px;
       overflow: hidden;
       border-radius: 8px;
       background: rgba(255,255,255,.92);
       flex-shrink: 0;
+      padding: 3px;
     }
     .nav-logo-mark img {
-      width: 40px;
-      height: 62px; /* 40 / .645 — reveals top 64.5% of square image = icon only */
+      width: 100%;
+      height: 100%;
       display: block;
-      object-fit: cover;
-      object-position: center top;
+      object-fit: contain;
     }
     .nav-logo-text { line-height: 1.15; }
     .nav-logo-name {
@@ -1395,29 +1394,10 @@
       <div class="work-card reveal delay-1">
         <div class="comparison" data-comparison>
           <div class="comp-after">
-            <img src="pool-strip-after.jpg" alt="Pool surround tiles after cleaning — clean terracotta restored">
+            <img src="roof2-after.jpg" alt="Roof tiles after cleaning — terracotta colour fully restored">
           </div>
           <div class="comp-before">
-            <img src="pool-strip-before.jpg" alt="Pool surround tiles before cleaning — covered in black mould">
-            <span class="comp-badge comp-badge-before">Before</span>
-          </div>
-          <span class="comp-badge comp-badge-after">After</span>
-          <div class="comp-handle">
-            <div class="comp-knob">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 18 4 12 10 6"/><polyline points="14 6 20 12 14 18"/></svg>
-            </div>
-          </div>
-        </div>
-        <p class="work-caption">Pool Surround · Residential, East London</p>
-      </div>
-
-      <div class="work-card reveal delay-2">
-        <div class="comparison" data-comparison>
-          <div class="comp-after">
-            <img src="roof-after.jpg" alt="Roof tiles after cleaning — vivid terracotta colour restored">
-          </div>
-          <div class="comp-before">
-            <img src="roof-before.jpg" alt="Roof tiles before cleaning — near-black mould coverage">
+            <img src="roof2-before.jpg" alt="Roof tiles before cleaning — dark mould and algae coverage">
             <span class="comp-badge comp-badge-before">Before</span>
           </div>
           <span class="comp-badge comp-badge-after">After</span>
@@ -1430,13 +1410,13 @@
         <p class="work-caption">Roof Tiles · Residential, East London</p>
       </div>
 
-      <div class="work-card reveal delay-3">
+      <div class="work-card reveal delay-2">
         <div class="comparison" data-comparison>
           <div class="comp-after">
-            <img src="patio-after.jpg" alt="Garden patio after cleaning — golden stone tiles fully restored">
+            <img src="paving2-after.jpg" alt="Paving tiles after cleaning — golden stone fully restored">
           </div>
           <div class="comp-before">
-            <img src="patio-before.jpg" alt="Garden patio before cleaning — dark mould and algae across tiles">
+            <img src="paving2-before.jpg" alt="Paving tiles before cleaning — heavy mould and staining">
             <span class="comp-badge comp-badge-before">Before</span>
           </div>
           <span class="comp-badge comp-badge-after">After</span>
@@ -1446,16 +1426,35 @@
             </div>
           </div>
         </div>
-        <p class="work-caption">Garden Patio · Residential, East London</p>
+        <p class="work-caption">Paving Tiles · Residential, East London</p>
+      </div>
+
+      <div class="work-card reveal delay-3">
+        <div class="comparison" data-comparison>
+          <div class="comp-after">
+            <img src="wall2-after.jpg" alt="Exterior wall after cleaning — mould fully removed">
+          </div>
+          <div class="comp-before">
+            <img src="wall2-before.jpg" alt="Exterior wall before cleaning — heavy black mould on render">
+            <span class="comp-badge comp-badge-before">Before</span>
+          </div>
+          <span class="comp-badge comp-badge-after">After</span>
+          <div class="comp-handle">
+            <div class="comp-knob">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 18 4 12 10 6"/><polyline points="14 6 20 12 14 18"/></svg>
+            </div>
+          </div>
+        </div>
+        <p class="work-caption">Exterior Wall · Residential, East London</p>
       </div>
 
       <div class="work-card reveal delay-4">
         <div class="comparison" data-comparison>
           <div class="comp-after">
-            <img src="steps-after.jpg" alt="Entrance steps after cleaning — warm sandstone restored">
+            <img src="bathroom-after.jpg" alt="Bathroom ceiling after mould removal — clean white restored">
           </div>
           <div class="comp-before">
-            <img src="steps-before.jpg" alt="Entrance steps before cleaning — mould staining throughout">
+            <img src="bathroom-before.jpg" alt="Bathroom ceiling before — heavy black mould throughout">
             <span class="comp-badge comp-badge-before">Before</span>
           </div>
           <span class="comp-badge comp-badge-after">After</span>
@@ -1465,7 +1464,7 @@
             </div>
           </div>
         </div>
-        <p class="work-caption">Entrance Steps · Residential, East London</p>
+        <p class="work-caption">Bathroom Ceiling · Interior Mould, East London</p>
       </div>
 
       <div class="work-card reveal delay-5">
