@@ -654,7 +654,72 @@
       line-height: 1.65;
     }
 
-    /* â”€â”€â”€ SECTORS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* --- WHY SOFTWASHING ------------------------------------------ */
+    .softwash { background: var(--bg-alt); }
+    .softwash-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-2xl);
+    }
+    .softwash-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: box-shadow .3s var(--ease-quart), transform .3s var(--ease-quart);
+    }
+    .softwash-card:hover {
+      box-shadow: var(--shadow-lift);
+      transform: translateY(-3px);
+    }
+    .softwash-icon-wrap {
+      width: 52px; height: 52px;
+      background: var(--teal-pale);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+      color: var(--teal-deep);
+      flex-shrink: 0;
+    }
+    .softwash-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: var(--space-sm);
+    }
+    .softwash-card > p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .softwash-stat {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .softwash-stat svg { flex-shrink: 0; color: var(--teal-mid); margin-top: 1px; }
+    @media (max-width: 900px) {
+      .softwash-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .softwash-grid { grid-template-columns: 1fr; }
+    }
+
+    /* --- SECTORS --------------------------------------------------- */
     .sectors { background: var(--bg-base); }
 
     .sectors-grid {
@@ -1505,6 +1570,92 @@
         <p class="work-caption">Roof Cleaning · Residential, East London</p>
       </div>
 
+
+    </div>
+  </div>
+</section>
+
+<section class="softwash section-pad" id="softwash" aria-labelledby="softwash-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="t-eyebrow">Why Choose Softwashing</span>
+      <h2 class="t-headline" id="softwash-heading">The Smarter, Safer Way to Clean</h2>
+      <p>Softwashing is a low-pressure cleaning method using specialised biodegradable solutions to safely remove mould, algae, and stains at the source — with longer-lasting results and no damage to your property.</p>
+    </div>
+
+    <div class="softwash-grid">
+
+      <div class="softwash-card reveal delay-1">
+        <div class="softwash-icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h3>Safe for Your Property</h3>
+        <p>Low-pressure cleaning protects surfaces like roofs, paint, plaster, and pavers from damage and wear — unlike traditional high-pressure washing that strips surfaces over time.</p>
+        <div class="softwash-stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Up to 90% lower pressure than traditional pressure washing.</span>
+        </div>
+      </div>
+
+      <div class="softwash-card reveal delay-2">
+        <div class="softwash-icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+        </div>
+        <h3>Eco-Friendly &amp; Non-Toxic</h3>
+        <p>We use biodegradable, non-toxic solutions that are safe for your family, children, and pets — and better for the environment around your home.</p>
+        <div class="softwash-stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+          <span>Our solutions break down naturally and leave no harmful residues behind.</span>
+        </div>
+      </div>
+
+      <div class="softwash-card reveal delay-3">
+        <div class="softwash-icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </div>
+        <h3>Kills Growth at the Source</h3>
+        <p>Softwashing treats mould, algae, lichen, and bacteria at the root — not just the surface — so the problem is gone, not just hidden, for far longer-lasting results.</p>
+        <div class="softwash-stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2"/></svg>
+          <span>Results last 3–6 times longer than pressure washing alone.</span>
+        </div>
+      </div>
+
+      <div class="softwash-card reveal delay-4">
+        <div class="softwash-icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Improves Curb Appeal</h3>
+        <p>Removes unsightly stains, black streaks, moss, and grime to restore the clean, fresh look of your property — making a real difference to first impressions and property value.</p>
+        <div class="softwash-stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <span>A clean exterior can boost property value by up to 10%.</span>
+        </div>
+      </div>
+
+      <div class="softwash-card reveal delay-5">
+        <div class="softwash-icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Saves Time &amp; Money</h3>
+        <p>Longer-lasting results mean less frequent cleaning and lower maintenance costs over time. One proper softwash treatment goes further than repeated pressure washes.</p>
+        <div class="softwash-stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Softwashing can cut maintenance costs by up to 50% annually.</span>
+        </div>
+      </div>
+
+      <div class="softwash-card reveal delay-1">
+        <div class="softwash-icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Healthier Spaces, Healthier People</h3>
+        <p>Removing mould, algae, and allergens improves air quality and creates a safer, healthier living or working environment for everyone inside the building.</p>
+        <div class="softwash-stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Mould exposure can trigger allergies, asthma, and other respiratory issues.</span>
+        </div>
+      </div>
 
     </div>
   </div>
